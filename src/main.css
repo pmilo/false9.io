@@ -126,6 +126,7 @@ ion-icon {
     display: flex; 
     justify-content: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
     
 .articles-banner {
@@ -151,9 +152,11 @@ ion-icon {
 
 .article-box {
     /* background-color: lightcoral; */
-    min-width: 260px;
-    max-width: 260px;
-    max-height: 350px;
+    min-width: 256px;
+    max-width: 256px;
+    max-height: 370px;
+    margin-bottom: 2.5em;
+    cursor: pointer;
 }
 
 .article-title {
@@ -179,5 +182,9 @@ ion-icon {
 
 .article-text, .article-data-row {
     font-size: .83rem;
+    color: rgb(139, 139, 139);
 }
 
+.article-board {
+    color: rgb(3, 211, 107);
+}
