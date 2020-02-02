@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>False9.io</title>
+    <script src="https://kit.fontawesome.com/197f6f8e00.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="site-container">
@@ -12,27 +13,27 @@
             <div class="nav-container">
                 <div class="nav-doc">
                     <div class="nav-icons-top">
-                        <span class="nav-logo"><ion-icon name="infinite" size="large"></ion-icon></span>
-                        <span class="nav-icon menu-icon"><ion-icon name="ios-menu" size="large"></ion-icon></span>
+                        <div class="nav-logo"><i class="fab fa-unity"></i></div>
+                        <span class="nav-icon menu-icon"><ion-icon name="ios-menu"></ion-icon></span>
                     </div>
                     <div class="nav-icons-mid">
-                        <span class="nav-icon"><ion-icon name="ios-color-filter" size="large"></ion-icon></span>
-                        <span class="nav-icon"><ion-icon name="help-circle-outline" size="large"></ion-icon></span>
+                        <span class="nav-icon"><ion-icon name="ios-color-filter"></ion-icon></span>
+                        <span class="nav-icon"><ion-icon name="help-circle-outline"></ion-icon></span>
                     </div>
                     <div class="nav-icon-bot">
-                        <span class="nav-icon"><ion-icon name="contact" size="large"></ion-icon></span>
+                        <span class="nav-icon"><i class="fas fa-user-circle"></i></ion-icon></span>
                     </div> <!---- /.nav-doc ---->
                 </div>
                 <nav class="nav-list">
                     <div class="nav-list-rows-top">
                         <div class="nav-list-row">
-                            <ion-icon name="book" size="small"></ion-icon><span class="nav-heading">Today</span>
+                            <span class="icon-wrapper"><i class="fas fa-rss-square"></i></span><span class="nav-heading">Today</span><span class="today-count count"></span>
                         </div>
                         <div class="nav-list-row">
-                            <ion-icon name="ios-bookmark" size="small"></ion-icon><span class="nav-heading">Read Later</span>
+                            <span class="icon-wrapper"><i class="fas fa-bookmark"></i></span><span class="nav-heading">Bookmarked</span><span class="bookmarked-count count">0</span>
                         </div>
                         <div class="nav-list-row">
-                            <ion-icon name="time" size="small"></ion-icon><span class="nav-heading">Recently Read</span>                    
+                            <span class="icon-wrapper"><i class="fas fa-history"></i></span><span class="nav-heading">Recently Read</span><span class="rread-count count"></span>                 
                         </div>
                     </div> <!---- /.nav-list-rows-top ---->
                     
@@ -48,68 +49,55 @@
                  <h2 class=article-board-desc>Stay ahead of the game with the latest football news!</h2>   
                 </div>
                 <div class="articles-banner-col-right">
-                    <ion-icon name="ios-list" size="large"></ion-icon>
-                    <ion-icon name="refresh" size="large"></ion-icon>
+                    <i class="fas fa-list"></i>
+                    <!-- <ion-icon name="refresh" size="large"></ion-icon> -->
+                    <!-- ======================================================================= -->
+                    <!--   REFRESH SPINNER --> 
+                    <!-- ======================================================================= -->
+                    <svg class="loading" viewBox="0 0 1000 1000">
+                        <defs>
+                            <path
+                                d="M500,0 C223.857625,3.38176876e-14 0,223.857625 0,500 C1.69088438e-14,776.142375 223.857625,1000 500,1000 C638.071187,1000 763.071187,944.035594 853.553391,853.553391 L1000,1000 L1000,500 L500,500 L676.776695,676.776695 C631.535594,722.017797 569.035594,750 500,750 C361.928813,750 250,638.071187 250,500 C250,361.928813 361.928813,250 500,250 C614.984365,250 711.83795,327.6271 741.012788,433.333333 L995.594289,433.333333 C963.001477,188.709369 753.538456,0 500,0 Z"
+                                id="path-1"></path>
+                        </defs>
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Icon4">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="body" fill="#2C4066" xlink:href="#path-1"></use>
+                                <polygon id="Bar5" fill="#85E032" mask="url(#mask-2)"
+                                    points="109.499995 823.053411 463.053386 469.50002 498.408725 504.855359 144.855334 858.40875">
+                                </polygon>
+                                <polygon id="Bar4" fill="#85E032" mask="url(#mask-2)"
+                                    points="38.8000011 752.353389 392.353392 398.799998 427.708731 434.155337 74.1553402 787.708728">
+                                </polygon>
+                                <polygon id="Bar3" fill="#85E032" mask="url(#mask-2)"
+                                    points="-31.899999 681.653392 321.653392 328.100001 357.008731 363.45534 3.45534008 717.008731">
+                                </polygon>
+                                <polygon id="Bar2" fill="#85E032" mask="url(#mask-2)"
+                                    points="-102.633336 610.920054 250.920054 257.366664 286.275393 292.722003 -67.2779973 646.275393">
+                                </polygon>
+                                <polygon id="Bar1" fill="#85E032" mask="url(#mask-2)"
+                                    points="-173.333333 540.220057 180.220057 186.666667 215.575396 222.022006 -137.977994 575.575396">
+                                </polygon>
+                            </g>
+                        </g>
+                    </svg>
+                    <!-- ======================================================================= -->
+                    <!--   REFRESH SPINNER --> 
+                    <!-- ======================================================================= -->
                 </div>
             </div>
             <div class="articles-view">
 
-                <div class="article-box">
-                    <div class="article-img-wrapper">
-                        <img src="assets/pastorerroma.jpg" alt="sample">
-                    </div>
-                    <h3 class="article-title">Javier Pastore signs with Roma</h3>
-                    <div class="article-data-row">
-                         <span class=article-board>Read Later</span>
-                         <span class=article-age>xx days</span>
-                    </div>
-                        <p class="article-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Accusantium odit, a et voluptatibus dicta alias sapiente voluptates dolore! 
-                        Vero dolore cum corrupti laborum deserunt.
-                        </p>
-                </div> <!---- /.articles-box ---->
-
-                <div class="article-box">
-                    <div class="article-img-wrapper">
-                        <img src="assets/pastorerroma.jpg" alt="sample">
-                    </div>
-                    <h3 class="article-title">Javier Pastore signs with Roma</h3>
-                    <div class="article-data-row">
-                         <span class=article-board>Read Later</span>
-                         <span class=article-age>xx days</span>
-                    </div>
-                        <p class="article-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Accusantium odit, a et voluptatibus dicta alias sapiente voluptates dolore! 
-                        Vero dolore cum corrupti laborum deserunt.
-                        </p>
-                </div> <!---- /.articles-box ---->
-
-                <div class="article-box">
-                    <div class="article-img-wrapper">
-                        <img src="assets/pastorerroma.jpg" alt="sample">
-                    </div>
-                    <h3 class="article-title">Javier Pastore signs with Roma</h3>
-                    <div class="article-data-row">
-                         <span class=article-board>Read Later</span>
-                         <span class=article-age>xx days</span>
-                    </div>
-                        <p class="article-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Accusantium odit, a et voluptatibus dicta alias sapiente voluptates dolore! 
-                        Vero dolore cum corrupti laborum deserunt.
-                        </p>
-                </div> <!---- /.articles-box ---->
-
+       
             </div> <!---- /.articles-view ---->
             
 
-
-
-
-
         </main> <!-- /.article-container -->
-
     </div> <!-- /.site-container -->
     
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>    
+    <!-- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>     -->
 </body>
 </html>
