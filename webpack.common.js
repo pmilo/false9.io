@@ -4,7 +4,8 @@ const path = require("path");
     	entry: {
     		main: "./src/index.js"
     		//vendor: "./src/vendor.js"
-    	},
+		},
+		devtool: 'source-map',
     	module: {
     		rules: [
     			{

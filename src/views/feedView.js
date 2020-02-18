@@ -26,14 +26,19 @@ export const renderArticle = (article, articleIndex, storageData) => {
                 <span class="overlay-icon"><i class="fas fa-bookmark bookmark bookmark-${articleIndex} ${activeIcon}"></i></span>
                 <span class="overlay-icon"><i class="fas fa-check"></i></span>
             </div>
-        
         </div>
-        <h3 class="article-title">${article.title}</h3>
-        <div class="article-data-row-${articleIndex} article-data-row">
+        <a href=${article.link} target="_blank">
+            <h3 class="article-title">${article.title}</h3>
+            <div class="article-data-row-${articleIndex} article-data-row">
                 <span class="article-board">${string}</span>
-                <span class="article-age">${article.pubDate}</span>
-        </div>
-        <p class="article-text">${article.description}</p>
+                <div class= "article-info>
+                    <span class="article-source">Goal //</span>
+                    <span class="article-age"> < 24h</span>
+                </div>
+                
+            </div>
+            <p class="article-text">${article.description}</p>
+        </a>
     </div>
     `  
     elements.articlesView.insertAdjacentHTML('beforeend', markup);
@@ -52,3 +57,25 @@ const findGuid = (bookmarkGuid, articleGuid) => {
         return false;
     }
 }
+
+
+
+
+
+
+// var today = new Date();
+// var dd = today.getDate();
+// var mm = today.getMonth()+1; //January is 0!
+// var yyyy = today.getFullYear();
+
+// let todaysDate = {year: yyyy, month: mm, day: dd};
+// // console.log(todaysDate);
+
+// // let todaysDate = `${yyyy.getFullYear();}${}${}`
+
+
+// var pubDateStr = "2020-02-08 21:50:44";
+
+// var [pubYear, pubMon, pubDay] = pubDateStr.split([-]| /);
+
+// console.log(pubYear, pubMon, pubDay, pubTime);

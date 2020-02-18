@@ -1,4 +1,5 @@
 import { elements, elementStrings } from "../views/base";
+import { clearArticles } from "../views/feedView";
 
 export default class Bookmarks {
     constructor(storageData) {
@@ -23,18 +24,17 @@ export default class Bookmarks {
 
     }
 
-    deleteBookmark(guid) {
+    deleteBookmark(guid) { 
         let index;
         for (const bookmark of state.bookmarks.bookmarks) {
-            if (!state.bookmarks.dataset) {
+            if (!bookmark.dataset) {
                if (bookmark.guid === guid) {
                 index = state.bookmarks.bookmarks.indexOf(bookmark);
                }
             } else {
                 if (bookmark.dataset.guid === guid) {
-                    index = state.bookmarks.indexOf(bookmark);
+                    index = state.bookmarks.bookmarks.indexOf(bookmark);
                 }
-            //    index = bookmark.dataset.guid.find(el => el.dataset.guid === guid);
             }
         }
         this.bookmarks.splice(index, 1);
@@ -47,17 +47,20 @@ export default class Bookmarks {
     }
 
     isBookmarked(guid) {
-        // if findIndex cannot find the passed in id after looping through the likes array, the output = -1
-        // if the id can NOT be found the findIndex method outputs 'false'
-        // if the id CAN be found the findIndex method outputs 'true'
-        
+    
         for (const bookmark of state.bookmarks.bookmarks)
             if (bookmark.dataset) {
                 if (bookmark.dataset.guid === guid) {
+                    console.log('bookmarks.dataset.guid === guid (TRUE)');
+                    // console.log('dataset - state.bookmarks.bookmarks @ isBookmarked:');
+                    // console.log(state.bookmarks.bookmarks);
                     return true;
                 }
             } else {
                 if (bookmark.guid === guid) {
+                    console.log('bookmarks.guid === guid (TRUE)');
+                    // console.log('guid - state.bookmarks.bookmarks @ isBookmarked:');
+                    // console.log(state.bookmarks.bookmarks);
                     return true;
                 }
             }

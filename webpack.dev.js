@@ -14,7 +14,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
     		new HtmlWebpackPlugin({
     			template: "./src/template.html"
     		})
-    	],
+		],
+		devtool: 'source-map',
     	module: {
     		rules: [
     			{

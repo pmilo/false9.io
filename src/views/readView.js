@@ -1,6 +1,6 @@
 import { elements } from './base';
 
-export const renderBookmarkedArticle = (article, articleIndex) => { 
+export const renderReadArticle = (article, articleIndex) => { 
 
     // const markup = `
     // <div class="article-box-${articleIndex}, article-box" data-guid=${article.guid}>
@@ -90,4 +90,3 @@ export const renderBookmarkedArticle = (article, articleIndex) => {
 export const clearArticles = parent => {
     parent.innerHTML = "";
 }
-
