@@ -54,12 +54,13 @@ body {
 }
 
 .nav-doc .page-icon-wrapper {
-    margin: 0 0 1.1em 0;
+    margin: 0 0 1.5em 0;
 }
 
 
 .nav-doc .page-icon-wrapper i {
  color: rgb(192, 192, 192);
+ font-size: 1.08rem;
 }
 
 .nav-doc .page-icon-wrapper i:hover {
@@ -78,7 +79,7 @@ body {
 
 .nav-icons-top {
     margin-top: 1.5em;
-    margin-bottom: 2em;
+    margin-bottom: 2.5em;
 
     display: flex;
     flex-direction: column;
@@ -90,7 +91,7 @@ body {
  flex-direction: column;
  justify-content: center;
  align-items: center;
- display: none;
+ /* display: none; */
 }
 
 
@@ -427,12 +428,12 @@ a {
 
 .collapse-width {
     width: 0;
-    transition: ease-in-out .4s;
+    transition: ease-in-out .3s;
 }
 
 .expand-width {
     width: 100%;
-    transition: ease-in-out .4s;
+    transition: ease-in-out .3s;
 }
 
 
@@ -465,11 +466,14 @@ a {
         margin-left: 64px;
     }
 
+    .articles-banner {
+        margin: 2em 0 5em 0;
+    }
+
     .articles-header-centered {
+        justify-content: space-between;
         max-width: 300px;
         min-width: 300px;
-        /* position: relative; */
-        justify-content: space-between;
         margin: 0 auto;
         padding: 0 2.1em 0 0;
     }
@@ -478,14 +482,8 @@ a {
         max-width: 300px;
         min-width: 300px;
         /* margin: 0 auto; */
-        padding-left: 33px;
+        padding-left: 1.5em;
 
-    }
-
-    .articles-view {
-        /* margin-left: 32px; */
-        /* margin: 0 auto; */
-        /* justify-content: center; */
     }
 
     .article-box {
@@ -507,7 +505,7 @@ a {
 @media (max-width: 375px) {
     
     .articles-content {
-        padding-left: 20px;
+        padding-left: 1.5em;
     }
 
     .articles-header-centered {

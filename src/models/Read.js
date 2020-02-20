@@ -32,17 +32,13 @@ export default class Read {
             if (article.dataset) {
                 // if HTML origin
                 if (article.dataset.guid === guid) {
-                    console.log('bookmarks.dataset.guid === guid (TRUE)');
-                    // console.log('dataset - state.bookmarks.bookmarks @ isBookmarked:');
-                    // console.log(state.bookmarks.bookmarks);
+
                     return true;
                 }
             } else {
                 // if JSON origin
                 if (article.guid === guid) {
-                    console.log('bookmarks.guid === guid (TRUE)');
-                    // console.log('guid - state.bookmarks.bookmarks @ isBookmarked:');
-                    // console.log(state.bookmarks.bookmarks);
+
                     return true;
                 }
             }
@@ -68,8 +64,6 @@ export default class Read {
 
     
     getReadCount() {
-        // console.log('state.bookmarks.bookmarks.length @ getBookmarksCount:');
-        // console.log(state.bookmarks.bookmarks.length);
         if (state.read.read.length < 1) {
             return " ";   
         } else {

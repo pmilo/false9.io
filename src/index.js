@@ -11,8 +11,6 @@ import Read from "./models/Read";
 
 
 
-
-
 // =============================================================================
 // INIT
 // =============================================================================
@@ -43,7 +41,6 @@ window.state = state;
 let storageData, storageRead;
 
 init();
-
 
 
 
@@ -159,9 +156,6 @@ const controlFeed = async () => {
 
 
 
-
-
-
     const readIcons = document.querySelectorAll(elementStrings.readIcons);
 
     for (const icon of readIcons) {
@@ -190,10 +184,6 @@ const controlFeed = async () => {
             }
         })
     }
-
-
-
-
 
 
 
@@ -253,7 +243,6 @@ const controlBookmarked = () => {
         bookmarksView.renderBookmarkedArticle(article, state.bookmarks.bookmarks.indexOf(article)); //replace 2nd argument with elements.articlesView.className(?)
         
     });
-
 
 
 
@@ -397,7 +386,6 @@ const controlBookmarked = () => {
         });
 
     }
-console.log('end of controlBookmarked function!');
 } // End controlBookmarked
 
 elements.navBookmarked.addEventListener('click', e => controlBookmarked())
@@ -526,8 +514,7 @@ const controlRead = () => {
     } // End controlRead    
 
 
-elements.navDocRead.addEventListener('click', e => controlRead())
-
+elements.navRRead.addEventListener('click', e => controlRead())
 
 
 
@@ -545,15 +532,13 @@ elements.navMenu.addEventListener('click', e => {
     if (elements.navList.classList.contains('collapse-width')) {
         elements.navList.classList.remove('collapse-width');
         elements.navList.classList.toggle('expand-width');
+        elements.navDocMid.classList.toggle('no-display');
     } else {
         elements.navList.classList.remove('expand-width');
         elements.navList.classList.toggle('collapse-width');
+        elements.navDocMid.classList.toggle('no-display');
     }
 })
-
-// let articlesHeaderTitle = document.querySelector('.articles-header-title');
-
-// console.log(headerElements);
 
 
 window.addEventListener('scroll', e => {
@@ -573,8 +558,12 @@ elements.navDocRSS.addEventListener('click', e => {
 })
 
 
-// const navDocBook = document.querySelector('.nav-doc .fa-bookmark');
 
 elements.navDocBook.addEventListener('click', e => {
     controlBookmarked();
+})
+
+
+elements.navDocRead.addEventListener('click', e => {
+    controlRead();
 })

@@ -6,8 +6,6 @@ export const renderArticle = (article, articleIndex, storageData) => {
     let activeIcon = "";
 
     if(storageData) {
-        // console.log('render Article - storageData:');
-        // console.log(storageData);
        for (const item of storageData) {
         
            if (findGuid(item.guid, article.guid)){
@@ -57,25 +55,3 @@ const findGuid = (bookmarkGuid, articleGuid) => {
         return false;
     }
 }
-
-
-
-
-
-
-// var today = new Date();
-// var dd = today.getDate();
-// var mm = today.getMonth()+1; //January is 0!
-// var yyyy = today.getFullYear();
-
-// let todaysDate = {year: yyyy, month: mm, day: dd};
-// // console.log(todaysDate);
-
-// // let todaysDate = `${yyyy.getFullYear();}${}${}`
-
-
-// var pubDateStr = "2020-02-08 21:50:44";
-
-// var [pubYear, pubMon, pubDay] = pubDateStr.split([-]| /);
-
-// console.log(pubYear, pubMon, pubDay, pubTime);

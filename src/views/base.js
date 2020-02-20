@@ -12,6 +12,7 @@ export const elements = {
     aHref: document.querySelectorAll('a'),
     articlesHeaderTitle: document.querySelector('.articles-header-title'),
     pageIcons: document.querySelector('.page-icons'),
+    navDocMid: document.querySelector('.nav-icons-mid'),
     navDocRSS: document.querySelector('.nav-doc .fa-rss-square'),
     navDocBook: document.querySelector('.nav-doc .fa-bookmark'),
     navDocRead: document.querySelector('.nav-doc .fa-history')

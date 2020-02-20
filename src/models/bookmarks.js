@@ -51,16 +51,12 @@ export default class Bookmarks {
         for (const bookmark of state.bookmarks.bookmarks)
             if (bookmark.dataset) {
                 if (bookmark.dataset.guid === guid) {
-                    console.log('bookmarks.dataset.guid === guid (TRUE)');
-                    // console.log('dataset - state.bookmarks.bookmarks @ isBookmarked:');
-                    // console.log(state.bookmarks.bookmarks);
+
                     return true;
                 }
             } else {
                 if (bookmark.guid === guid) {
-                    console.log('bookmarks.guid === guid (TRUE)');
-                    // console.log('guid - state.bookmarks.bookmarks @ isBookmarked:');
-                    // console.log(state.bookmarks.bookmarks);
+
                     return true;
                 }
             }
@@ -82,8 +78,6 @@ export default class Bookmarks {
     }
 
     getBookmarksCount() {
-        // console.log('state.bookmarks.bookmarks.length @ getBookmarksCount:');
-        // console.log(state.bookmarks.bookmarks.length);
         if (state.bookmarks.bookmarks.length < 1) {
             return " ";   
         } else {
@@ -96,8 +90,5 @@ export default class Bookmarks {
          const storage = JSON.parse(localStorage.getItem('bookmarks'));
          return storage;
     }
-
-
-
 
 } // END Bookmarks class

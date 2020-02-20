@@ -1,5 +1,3 @@
-// const crossOrigin = "https://crossorigin.me/"
-    
 export default class Feed {
     constructor(url) {
         this.url = url;
@@ -19,7 +17,6 @@ export default class Feed {
             alert(error);
         }
         
-
         // const res = await fetch(this.url);
         // this.data = await res.json();
 
@@ -28,6 +25,7 @@ export default class Feed {
 
         // return this.data;
     }
+
 
     // hoursPublished(pubDate, pubTime) {
     // let hours;
@@ -51,32 +49,9 @@ export default class Feed {
     // let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     // hours += diffDays * 24;
 
-
-
     // return hours;
 
-
-
-
-}
-
-
-
-
-    // export const hoursPublished = (pubDate) => {
-        
-    // const today = new Date();
-    // const dd = today.getDate();
-    // const mm = today.getMonth()+1;
-
-    // // let date = `${}${}`
-
-    // // const [pubDate, pubTime] = article.pubDate.split(" ");
-    // // const [pubYr, pubMo, pubDd] = article.pubDate.split("-");
-
-    // // console.log(pubYr, pubMo, pubDd);
-
-    // }
+} // END Feed class
 
 
     
