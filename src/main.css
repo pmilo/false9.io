@@ -78,7 +78,7 @@ body {
 
 
 .nav-icons-top {
-    margin-top: 1.5em;
+    margin-top: 1.23em;
     margin-bottom: 2.5em;
 
     display: flex;
@@ -131,10 +131,12 @@ body {
 
 .count {
     color: rgb(180, 180, 194);
+    font-size: .81rem;
 }
 
 .nav-list-row:hover {
     background-color: rgba(3, 211, 107, 0.27);
+    /* background-image: linear-gradient(to right top, #00c27e, #00d185, #00e08d, #00f094, #00ff9b); */
     border-radius: 0 15px 15px 0;
     /* color: rgb(3, 211, 107); */
     color: #fff;
@@ -210,8 +212,8 @@ i {
 
 .articles-header-centered {
     margin: 0 auto;
-    max-width: 821.75px;
-    min-width: 821.75px;
+    max-width: 850.1px;
+    min-width: 850.1px;
 
     display: flex;
     align-items: center;
@@ -226,13 +228,15 @@ i {
     margin-top: 2.8em;
     /* width: 50%; */
     /* min-width: 85.5% ; */
-    min-width: 823px;
-    max-width: 823px;
+    min-width: 850.1px;
+    max-width: 850.1px;
     
 }
 
 .article-board-title {
-    letter-spacing: -.05rem;
+    font-size: 2.1rem;
+    letter-spacing: -1.36px;
+    line-height: 42px;
     margin: 0;
     margin-top: .3em;
 }
@@ -312,10 +316,10 @@ i {
     cursor: pointer;
     margin-right: 1.9em;
 }
-
+/* 
 .article-box:nth-child(3n) {
     margin-right: 0;
-}
+} */
 
 a {
     color: rgb(51, 51, 51);
@@ -326,9 +330,9 @@ a {
     margin: 0;
     margin-bottom: .8em;
     font-size: 1rem;
-    line-height: 1.3rem;
-    letter-spacing: -0.64;
-    font-weight: 700;
+    line-height: 1.25rem;
+    letter-spacing: -0.04em;
+    font-weight: 600;
 }
 
 .article-title:hover {
@@ -362,10 +366,10 @@ a {
 }
 
 .article-text, .article-data-row {
-    font-size: .83rem;
+    font-size: .81rem;
     /* color: rgb(139, 139, 139); */
     color: rgb(158, 158, 158);
-    line-height: 1.15rem;
+    line-height: 1.05rem;
     text-rendering: optimizeLegibility;
 }
 
@@ -467,29 +471,28 @@ a {
     }
 
     .articles-banner {
-        margin: 2em 0 5em 0;
+        margin: 4em 0 5em 0;
+    }
+
+    .articles-banner-col-right {
+        margin-right: 2.1em;
     }
 
     .articles-header-centered {
         justify-content: space-between;
-        max-width: 300px;
-        min-width: 300px;
+        max-width: 620px;
+        min-width: 620px;
         margin: 0 auto;
-        padding: 0 2.1em 0 0;
+        padding: 0 5em 0 0;
     }
 
     .articles-content {
-        max-width: 300px;
-        min-width: 300px;
-        /* margin: 0 auto; */
+        max-width: 600px;
+        min-width: 600px;
+        margin: 0 auto;
         padding-left: 1.5em;
 
     }
-
-    .article-box {
-        /* margin: 0 auto; */
-    }
-
 
     .article-board-title {
         font-size: 1.3rem;
@@ -502,17 +505,94 @@ a {
 }
 
 
-@media (max-width: 375px) {
-    
+@media (max-width: 650px) {
     .articles-content {
-        padding-left: 1.5em;
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 0;
+    }
+
+    .articles-view {
+        width: 85%;
+        margin-top: 3.4em;
+        margin-left: 2em;
     }
 
     .articles-header-centered {
-        margin-left: 1.8em;
+        /* max-width: 55%; */
+        min-width: 93%;
     }
 
-    .articles-banner-col-right {
-        justify-content: flex-start;
+    .articles-banner {
+        display: none;
     }
+
+    .article-box {
+        min-width: 100%;
+        min-height: 430px;
+        margin: 0 auto;
+    }
+
+    .article-box img {
+        /* width: 100%; */
+        height: auto;
+    }
+
+    .overlay-icon-row {
+        margin: 0;
+        padding: 0;
+        top: 15px;
+        left: 425px;
+    }
+
+    .overlay-icon-row i {
+        margin-left: .4em;
+    }
+}
+
+@media (max-width: 450px) {
+    .articles-content {
+        min-width: 100%;
+    }
+
+    .articles-view {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .article-box {
+        min-height: 375px;
+    }
+
+    .article-box img {
+     border-radius: 0;
+    }
+
+    .overlay-icon-row {
+        top: 15px;
+        left: 318px;
+    }
+
+    .overlay-icon-row i {
+     margin-left: 0;  
+    }
+
+}
+
+
+@media (max-width: 375px) {
+    
+    .article-box {
+        min-height: 345px;
+    }
+
+    .overlay-icon-row {
+        top: 15px;
+        left: 240px;
+    }
+
+    .article-title, .article-text {
+        padding-right: 1em;
+    }
+    
 }
