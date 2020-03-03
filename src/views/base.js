@@ -3,7 +3,7 @@ export const elements = {
     bookmarkedCount: document.querySelector(".bookmarked-count"),
     rreadCount: document.querySelector(".rread-count"),
     navBookmarked: document.querySelector('.nav-list-row.bookmarked'),
-    navRRead: document.querySelector('.nav-list-row.rread'),
+    navRRead: document.querySelector('.nav-list-row.read'),
     navToday: document.querySelector('.nav-list-row.today'),
     boardTitle: document.querySelector('.article-board-title'),
     boardDesc: document.querySelector('.article-board-desc'),

@@ -5,7 +5,8 @@
 }
 
 html {
-
+margin: 0;
+padding: 0;
 }
 
 body {
@@ -68,7 +69,7 @@ body {
    }
 
 .nav-logo {
-    max-width: 45px;
+    max-width: 41px;
     margin-bottom: .6em;
 }
 
@@ -220,6 +221,10 @@ i {
     justify-content: space-between;
 }
 
+.articles-header-title {
+    text-transform: capitalize;
+}
+
 .articles-content {
     display: flex;
     flex-direction: column;
@@ -234,6 +239,7 @@ i {
 }
 
 .article-board-title {
+    text-transform: capitalize;
     font-size: 2.1rem;
     letter-spacing: -1.36px;
     line-height: 42px;
@@ -415,6 +421,10 @@ a {
     color:rgb(3, 211, 107) !important;
 }
 
+.test {
+    color: blue !important; 
+}
+
 .show {
     opacity: 1;
     transition: all .5s;
@@ -440,6 +450,9 @@ a {
     transition: ease-in-out .3s;
 }
 
+.rread {
+    opacity: .55;
+}
 
 
 
@@ -549,6 +562,22 @@ a {
         margin-left: .4em;
     }
 }
+
+@media (max-width: 600px) {
+    .overlay-icon-row {
+        display: none;
+    }
+
+    .articles-view {
+        margin-left: 0;
+        padding-left: .1em
+    }
+
+    .articles-header-centered {
+        padding-right: 4.1em;
+    }
+}
+
 
 @media (max-width: 450px) {
     .articles-content {

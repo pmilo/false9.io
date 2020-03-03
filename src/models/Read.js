@@ -25,6 +25,29 @@ export default class Read {
 
     }
 
+    deleteRead(guid) {
+        let index;
+        for (const item of state.read.read) {
+            // determin item datatype (HTML element / JSON)
+            if (!item.dataset) {
+               if (item.guid === guid) {
+                index = state.read.read.indexOf(item);
+               }
+            } else {
+                if (item.dataset.guid === guid) {
+                    index = state.read.read.indexOf(item);
+                }
+            }
+        }
+        this.read.splice(index, 1);
+
+        // update UI Recently Read count 
+        elements.rreadCount.innerHTML = state.read.getReadCount();
+
+        // Persist data in localStorage
+        this.persistData();
+    }
+
 
     isRead(guid) {
     
