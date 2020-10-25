@@ -40,6 +40,7 @@ export default class Bookmarks {
         this.bookmarks.splice(index, 1);
 
         // update UI bookmark count 
+        
         elements.bookmarkedCount.innerHTML = state.bookmarks.getBookmarksCount();
 
         // Persist data in localStorage
@@ -79,7 +80,7 @@ export default class Bookmarks {
 
     getBookmarksCount() {
         if (state.bookmarks.bookmarks.length < 1) {
-            return " ";   
+            return "";   
         } else {
             return this.bookmarks.length;
         }

@@ -11,6 +11,7 @@ export default class Feed {
             // console.log('json');
             // console.log(json);
 
+            // this.data (state.feed.data) 
             this.data = await json.items;
 
         } catch(error) {

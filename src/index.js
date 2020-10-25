@@ -25,13 +25,16 @@ function init() {
         state.bookmarks = new Bookmarks();
     }
     elements.bookmarkedCount.innerHTML = state.bookmarks.getBookmarksCount();
+    // if (bcount > 0) { elements.bookmarkedCount.innerHTML = bcount; }
 
     if (storageRead) {
         state.read = new Read(storageRead);
     } else {
         state.read = new Read();
     }
+
     elements.rreadCount.innerHTML = state.read.getReadCount();
+    // if (rcount > 0) { elements.rreadCount.innerHTML = rcount; }
 };
 
 

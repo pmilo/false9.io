@@ -88,7 +88,7 @@ export default class Read {
     
     getReadCount() {
         if (state.read.read.length < 1) {
-            return " ";   
+            return "";   
         } else {
             return this.read.length;
         }
