@@ -53,6 +53,14 @@ init();
 
 
 const controlFeed = async () => {
+    // restore article view => restore view btn classname ('fas fa-list')
+    // NOTE: mag-- prefixed classes are removed @ article render functions
+    elements.viewBtns.forEach(btn =>{
+        btn.firstElementChild.className = "fas fa-list";
+        btn.firstElementChild.title = "Magazine View";
+    })
+    // just run toggleArticleView func !
+    // feedView.toggleArticleView(elements.viewBtns);
 
     const proxy = "https://cors-anywhere.herokuapp.com/";
     const url = `${proxy}https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.goal.com%2Ffeeds%2Fen%2Fnews`
@@ -102,6 +110,13 @@ controlFeed();
 
 const controlBookmarked = (selectedBoard, articleCount) => {
 
+     // restore article view => restore view btn classname ('fas fa-list')
+    // NOTE: mag-- prefixed classes are removed @ article render functions
+    elements.viewBtns.forEach(btn =>{
+        btn.firstElementChild.className = "fas fa-list";
+        btn.firstElementChild.title = "Magazine View";
+    })
+
     //update page heading/description
     feedView.updateBanner(selectedBoard, articleCount);
 
@@ -125,7 +140,7 @@ const controlBookmarked = (selectedBoard, articleCount) => {
     })
 } // End controlBookmarked
 
-elements.navBookmarked.addEventListener('click', e => controlBookmarked("bookmarked", state.bookmarks.bookmarks.length))
+elements.navBookmarked.addEventListener('click', e => controlBookmarked("bookmarks", state.bookmarks.bookmarks.length))
         
     
 
@@ -145,6 +160,13 @@ elements.navToday.addEventListener('click', e => controlFeed())
 // =====h========================================================================
 
 const controlRead = (selectedBoard, articleCount) => {
+
+    // restore article view => restore view btn classname ('fas fa-list')
+    // NOTE: mag-- prefixed classes are removed @ article render functions
+    elements.viewBtns.forEach(btn =>{
+        btn.firstElementChild.className = "fas fa-list";
+        btn.firstElementChild.title = "Magazine View";
+    })
 
     //update page heading/description
     feedView.updateBanner(selectedBoard, articleCount);
@@ -186,10 +208,17 @@ elements.navMenu.addEventListener('click', e => {
         elements.navList.classList.remove('collapse-width');
         elements.navList.classList.toggle('expand-width');
         elements.navDocMid.classList.toggle('no-display');
+        // reposition article counters for small-screen view / nav-doc
+        elements.bookmarkedCount.classList.remove('menu-toggled-bookmarked-count');
+        elements.rreadCount.classList.remove('menu-toggled-rread-count');
     } else {
         elements.navList.classList.remove('expand-width');
         elements.navList.classList.toggle('collapse-width');
         elements.navDocMid.classList.toggle('no-display');
+        // reposition article counters for desktop view / nav-list
+        elements.bookmarkedCount.classList.add('menu-toggled-bookmarked-count');
+        elements.rreadCount.classList.add('menu-toggled-rread-count');
+        
     }
 })
 
@@ -224,10 +253,19 @@ elements.navDocRSS.addEventListener('click', e => {
 
 
 elements.navDocBook.addEventListener('click', e => {
-    controlBookmarked("bookmarked", state.bookmarks.bookmarks.length);
+    controlBookmarked("bookmarks", state.bookmarks.bookmarks.length);
 })
 
 
 elements.navDocRead.addEventListener('click', e => {
     controlRead("read", state.read.read.length);
 })
+
+//------------------- VIEW-BTN ---------------------
+Array.from(elements.viewBtns)
+    .forEach(btn => {
+        btn.addEventListener('click', () => {
+            console.log('1 of 2 viewBtns clicked');
+            feedView.toggleArticleView(elements.viewBtns);
+        });
+    });

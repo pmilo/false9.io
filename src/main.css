@@ -17,12 +17,10 @@ body {
 
 .site-container {
     background-color: #fff;
-    /* width: 100%; */
     height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between !important; */
 }
 
 /* -------------------------------------------------------------------------- */
@@ -31,12 +29,10 @@ body {
 
 .nav-container {
     height: 100%;
-    /* min-width: 375px; */
     min-width: 368px;
     max-width: 368px;
 
     position: fixed;
-    /* background-color: red; */
     z-index: 100;
     display: flex;
     flex-direction: row;
@@ -123,18 +119,20 @@ body {
     color: #757597c6;
     width: 90%;
     min-width: 280px;
-    /* margin: 0 auto; */
     padding: 0 1.5em;
     align-items: center; 
     cursor: pointer;
     border-radius: 0;
-    display: flex;   
+    display: flex;
+}
+
+.nav-list-row .nav-heading {
+    font-size: .8rem;
 }
 
 .count {
     width: 16px;
     height: 16px;
-    /* color: rgb(180, 180, 194); */
     color: #fff;
     background-color: #ff625ad5;
     border-radius: 2.5px;
@@ -145,19 +143,24 @@ body {
     justify-content: center;
 }
 
+
 .count:empty {
     display: none;
 }
 
 .nav-list-row:hover {
     box-sizing: 0;
-    /* background-color: rgba(3, 211, 107, 0.089); */
+    /* background-color: #acb6b6; */
+    /* background-color: #fff; */
+    color: #fff;
+    /* color: #03D36B; */
     background-color: #eaedf2;
-    border-left: 4.5px solid #03D36B;
-    /* background-image: linear-gradient(to right top, #00c27e, #00d185, #00e08d, #00f094, #00ff9b); */
-    border-radius: 0 15px 15px 0;
-    /* color: rgb(3, 211, 107); */
-    color: #03D36B;
+
+    background-image: linear-gradient(to right top, #00c27e, #00d185, #00e08d, #00f094, #00ff9b);
+    /* border-radius: 0 15px 15px 0; */
+    border-radius: 0 3px 3px 0;
+    box-shadow: 0 2px 4px rgb(184, 184, 184);
+    opacity: 0.82;
 }
 
 .active-row {
@@ -289,7 +292,9 @@ i {
 .articles-banner {
     width: 100%;
     display: flex;
-    margin: 4em 0 7em 0;
+    margin: 4em 0 5em 0;
+    padding-bottom: 2.5em;
+    border-bottom: 1px solid rgb(240, 238, 238);
 }
 
 .articles-banner-col-left {
@@ -338,12 +343,14 @@ i {
 
 
 .article-box {
+    /* min-width: 456px; */
     min-width: 256px;
     max-width: 256px;
     max-height: 370px;
     margin-bottom: 2.5em;
     cursor: pointer;
     margin-right: 1.9em;
+    position: relative;
 }
 /* 
 .article-box:nth-child(3n) {
@@ -372,59 +379,72 @@ a {
 
 .article-img-wrapper {
     width: 100%;
-    position: relative;
+    /* position: relative; */
+    /* z-index: 10; */
 }
 
 .article-img-wrapper img {
     width: 100%;
     height: 145px;
-    border-radius: .3em;
+    border-radius: .25em;
     margin-bottom: .3em;
+    border: 1px solid rgb(233, 233, 233);
 }
 
 .article-img-wrapper-hover {
-    filter: opacity(80%);
-    transition: all .5s;
+    /* filter: opacity(80%); */
+    filter: brightness(40%);
+    transition: all .65s;
 }
 
 
-.article-data-row {
-    display: flex;
-    justify-content: flex-start;
+.article-data-row *{
+    /* display: flex;
+    justify-content: flex-start; */
+    font-size: .74rem;
+}
 
+.article-data-row i {
+    margin-right: .4em;
 }
 
 .article-text, .article-data-row {
     font-size: .81rem;
-    /* color: rgb(139, 139, 139); */
     color: rgb(158, 158, 158);
     line-height: 1.05rem;
     text-rendering: optimizeLegibility;
 }
 
 .article-board {
-    /* background-color: rgb(3, 211, 107); */
-    /* color: rgb(3, 211, 107); */
     background-image: linear-gradient(to right top, #00c27e, #00d185, #00e08d, #00f094, #00ff9b);
-    /* padding: .08em .5em; */
     border-radius: 2px;
     color: #fff;
-    margin-right: .7em;
-    padding: .1em .4em;
-    box-shadow: 0px 2.5px 5px #ccc;
+    margin-right: .6em;
+    padding: .24em .74em;
+    box-shadow: 0px 2px 5px #ccc;
 }
 
 .article-board:empty {
     display: none;
  }
 
+
+ .article-source {
+     margin-right: .6em;
+ }
+
+ .article-source, .article-age, .article-age i {
+     color: rgba(95, 165, 150, 0.892);
+ }
+
 .overlay-icon-row {
     display: flex;
-    position: absolute;
+    /* visibility: hidden; */
+    opacity: 0;
     top: 10px;
     left: 188px;
-    opacity: 0;
-    transition: all .5s;
+    position: absolute;
+    /* transition: all .5s; */
 }
 
 .overlay-icon {
@@ -439,23 +459,17 @@ a {
 
 .overlay-icon-row i:hover {
     color:rgb(3, 211, 107);
-    filter: drop-shadow(0px 0px 1px rgb(39, 39, 39));
+    /* filter: drop-shadow(0px 0px 1px rgb(39, 39, 39)); */
 }
 
 .active-icon {
     color:rgb(3, 211, 107) !important;
 }
 
-.test {
-    color: blue !important; 
-}
-
-.show {
+/* .show {
     opacity: 1;
     transition: all .5s;
-}
-
-
+} */
 
 /* -------------------------------------------------------------------------- */
 /* REUSABLE */
@@ -463,6 +477,10 @@ a {
 
 .no-display {
     display: none;
+}
+
+.visible {
+    visibility: visible;
 }
 
 .collapse-width {
@@ -479,8 +497,69 @@ a {
     opacity: .55;
 }
 
+.fade-in{
+    opacity: 1;
+    transition: all .8s;
+}
 
 
+/* -------------------------------------------------------------------------- */
+
+
+.menu-toggled-bookmarked-count {
+    position: absolute;
+    top: 202px;
+    left: 38px;
+
+}
+
+.menu-toggled-rread-count {
+    position: absolute;
+    top: 264px;
+    left: 38px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+/* ========================================================================== */
+/*  MAGAZINE VIEW STYLING */
+/* ========================================================================== */
+
+.mag--article-box {
+min-width: 600px !important;
+display: flex !important;
+}
+
+.mag--article-img-wrapper {
+    width: auto !important;
+    margin-right: 1.2rem;
+}
+
+.mag--article-img{
+    height: 81px !important;
+    width: 132px !important;
+}
+
+.mag--article-title {
+    margin-bottom: .5em !important;
+}
+
+.mag--article-text {
+    margin-top: 3em !important;
+}
+
+.mag--overlay-icon-row {
+    top: 76px !important;
+    left: 139px !important;
+    opacity: 1 !important;
+    color: rgb(223, 220, 220) !important;
+}
+
+.mag--overlay-row-icons {
+    color: rgb(211, 211, 211) !important;
+    font-size: .85rem !important;
+}
 
 
 /* ========================================================================== */
@@ -497,6 +576,20 @@ a {
 
     .nav-icons-mid {
         display: flex;
+        position: relative;
+    }
+
+    .count {
+        position: absolute;
+        left: 38px;
+    }
+
+    .bookmarked-count {
+        top: 202px;
+    }
+
+    .rread-count {
+        top: 264px;
     }
 
 }

@@ -1,19 +1,7 @@
 import { elements, elementStrings } from './base';
+// import Feed from '../models/Feed';
 
 export const renderArticle = (article, articleIndex, storageData) => { 
-
-    // let string = "";
-    // let activeIcon = "";
-
-    // if(storageData) {
-    //    for (const item of storageData) {
-        
-    //        if (findGuid(item.guid, article.guid)){
-    //            string = "Bookmarked";
-    //            activeIcon = "active-icon";
-    //        }
-    //    }
-    // }
 
     const markup = `
     <div class="article-box-${articleIndex}, article-box" data-guid=${article.guid}>
@@ -21,19 +9,18 @@ export const renderArticle = (article, articleIndex, storageData) => {
             <img src=${article.enclosure.thumbnail} class=article-img-${articleIndex} alt="image">
             
             <div class="overlay-icon-row-${articleIndex} overlay-icon-row">
-                <span class="overlay-icon"><i class="fas fa-bookmark bookmark bookmark-${articleIndex}"></i></span>
-                <span class="overlay-icon"><i class="fas fa-check check-${articleIndex}"></i></span>
+                <span class="overlay-icon"><i class="fas fa-bookmark bookmark bookmark-${articleIndex}" title="Toggle Bookmark"></i></span>
+                <span class="overlay-icon"><i class="fas fa-check check-${articleIndex}" title="Toggle Read"></i></span>
             </div>
         </div>
         <a href=${article.link} target="_blank">
             <h3 class="article-title">${article.title}</h3>
             <div class="article-data-row-${articleIndex} article-data-row">
-                <span class="article-board"></span>
-                <div class= "article-info>
-                    <span class="article-source">Goal //</span>
-                    <span class="article-age"> < 24h</span>
+            <div class="article-info">
+            <span class="article-board"></span>
+                    <span class="article-source" title="Source">Goal.com&nbsp;&nbsp;&nbsp;/</span>
+                    <span class="article-age" title="Published"><i class="far fa-calendar"></i>${state.feed.calcDaysAgo(article.pubDate)}</span>
                 </div>
-                
             </div>
             <p class="article-text">${article.description}</p>
         </a>
@@ -59,10 +46,12 @@ export const updateBanner = (board = "today", articleCount) => {
     elements.boardTitle.innerHTML = board;
 
     if (board === "today") {
-        elements.boardDesc.innerHTML = `Stay ahead of the game with the latest football news!`;
+        elements.boardDesc.innerHTML = `stay ahead of the game with the latest football news.`;
     } else {
         let articleStr;
         articleCount === 1 ? articleStr = "article" : articleStr = "articles";
+
+        if (board === "bookmarks") { board = "bookmarked" }
         elements.boardDesc.innerHTML = `You have <strong>${articleCount}</strong> ${board} ${articleStr}`;
     }
 }
@@ -77,21 +66,23 @@ export const initArticleBoxes = () => {
         ['mouseover','mouseout'].forEach(evt => {
             box.addEventListener(evt, e => {
                 
-                const index = articleBoxes.indexOf(box)
-
+                const index = articleBoxes.indexOf(box);
                 // get article image
-                const articleImg = document.querySelector(`.article-img-${index}`)
+                const articleImg = document.querySelector(`.article-img-${index}`);
 
                 // apply img filter (currently applied css :hover selector)
                 
                 // get overlay row
-                const iconOverlayRow = document.querySelector(`.overlay-icon-row-${index}`)
+                let iconOverlayRow = document.querySelector(`.overlay-icon-row-${index}`);
 
-                // apply opacity class to img wrapper to facilitate icon overlay row show
-                iconOverlayRow.parentNode.classList.toggle("article-img-wrapper-hover");  
+                // apply opacity/brightness class to img wrapper to facilitate icon overlay row show
+                iconOverlayRow.previousElementSibling.classList.toggle("article-img-wrapper-hover");  
+
+                // add fade-in class to icon row
+                iconOverlayRow.classList.toggle("fade-in");
 
                 // add .show class to overlay row
-                iconOverlayRow.classList.toggle("show");  
+                // iconOverlayRow.classList.toggle("show");
 
             })                              
         });
@@ -162,8 +153,6 @@ export const setReadIcons = () => {
 
            // get clicked article box element
             const clickedArticle = e.currentTarget.parentNode.parentNode.parentNode.parentNode;
-            console.log('clickedArticle');
-            console.log(clickedArticle);
             // get clicked DOM article box index
             const index = clickedArticle.classList[0].replace( /[\D,]+/g, ''); // replace all non-digits,commas with nothing
             // get clicked DOM article box guid
@@ -214,19 +203,21 @@ export const setAnchorTags = () => {
 
 // apply for each article after rendered
 export const renderArticleState = (article, index, guid, selectedBoard = "") => {
+    // get article 'bookmarked' element 
     const articleBoardTitle = document.querySelector(`.article-data-row-${index} ${elementStrings.articleBoard}`);
+    // get article bookmark icon element
     const bookmarkIcon = document.querySelector(`.bookmark-${index}`);
 
-// check bookmarked status
+    // check bookmarked status
     if (!state.bookmarks.isBookmarked(guid)) {
-        // clear article board title innerHTML
+        // clear article 'bookmarked' element innerHTML
         articleBoardTitle.innerHTML = "";
-        // if bookmark icon .contains active-icon class, remove
+        // if bookmark icon .contains active-icon class, remove it
         if (bookmarkIcon.classList.contains('active-icon')) { bookmarkIcon.classList.remove('active-icon'); }
     } else { 
-       // add article board title innerHTML
+       // add article 'bookmarked' status
        articleBoardTitle.innerHTML = "Bookmarked";
-       // if bookmark icon does not .contains active-icon class, add
+       // if bookmark icon does not .contains active-icon class, add it
        bookmarkIcon.classList.add('active-icon');
     }
 
@@ -242,4 +233,45 @@ export const renderArticleState = (article, index, guid, selectedBoard = "") => 
         if (article.classList.contains('rread') && selectedBoard == "read") { article.classList.remove('rread'); }
         
     }
+}
+
+
+export const toggleArticleView = viewBtns => {
+   
+    // get elements & apply magazine view styling
+    document.querySelectorAll(elementStrings.articleBoxes)
+        .forEach(el => el.classList.toggle('mag--article-box'));
+
+    document.querySelectorAll(elementStrings.articleImgWrapper)
+        .forEach(el => el.classList.toggle('mag--article-img-wrapper'));
+
+    document.querySelectorAll(elementStrings.articleImg)
+        .forEach(el => el.classList.toggle('mag--article-img'));
+
+    document.querySelectorAll(elementStrings.articleTitle)
+        .forEach(el => el.classList.toggle('mag--article-title'));
+
+    document.querySelectorAll(elementStrings.articleText)
+        .forEach(el => el.classList.toggle('mag--article-text'));
+
+    document.querySelectorAll(elementStrings.overlayIconRow)
+        .forEach(el => el.classList.toggle('mag--overlay-icon-row'));
+
+    document.querySelectorAll(elementStrings.overlayRowIcons)
+        .forEach(el => el.classList.toggle('mag--overlay-row-icons'));    
+    
+    
+    // update view icon
+    // console.log(document.querySelectorAll(elementStrings.viewBtn))
+    viewBtns.forEach(el => {
+            if (el.firstElementChild.className.includes('fa-list')) {
+                el.firstElementChild.className = "fas fa-th";
+                el.firstElementChild.title = "Grid View"
+            } else {
+                el.firstElementChild.className = "fas fa-list"
+                el.firstElementChild.title = "Magazine View";
+            }
+        })
+
+    
 }

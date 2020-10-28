@@ -98,11 +98,22 @@ export const renderReadArticle = (article, articleIndex) => {
         "bookmark-9": `bookmark-${articleIndex}`,
         "check-9": `check-${articleIndex}`,
 
+
+        "mag--article-box ": " ",
+        "mag--article-img-wrapper": " ",
+        "mag--article-img": " ",
+        "mag--article-title": " ",
+        "mag--article-text": " ",
+        "mag--overlay-icon-row": " ",
+        "mag--overlay-row-icons": " ",
+
+        "fade-in": " ",
+
     }
 
     //remove classes from article's outerHTML
     const doctoredArticle = article.outerHTML.replace(
-        /show|article-img-wrapper-hover|box-0|box-1|box-2|box-3|box-4|box-5|box-6|box-7|box-8|box-9|row-0|row-1|row-2|row-3|row-4|row-5|row-6|row-7|row-8|row-9|img-0|img-1|img-2|img-3|img-4|img-5|img-6|img-7|img-8|img-9|bookmark-0|bookmark-1|bookmark-2|bookmark-3|bookmark-4|bookmark-5|bookmark-6|bookmark-7|bookmark-8|bookmark-9|check-0|check-1|check-2|check-3|check-4|check-5|check-6|check-7|check-8|check-9/gi, matched => {
+        /show|article-img-wrapper-hover|box-0|box-1|box-2|box-3|box-4|box-5|box-6|box-7|box-8|box-9|row-0|row-1|row-2|row-3|row-4|row-5|row-6|row-7|row-8|row-9|img-0|img-1|img-2|img-3|img-4|img-5|img-6|img-7|img-8|img-9|bookmark-0|bookmark-1|bookmark-2|bookmark-3|bookmark-4|bookmark-5|bookmark-6|bookmark-7|bookmark-8|bookmark-9|check-0|check-1|check-2|check-3|check-4|check-5|check-6|check-7|check-8|check-9|mag--article-box|mag--article-img-wrapper|mag--article-img|mag--article-title|mag--article-text|mag--overlay-icon-row|mag--overlay-row-icons|fade-in/gi, matched => {
         return matchObj[matched];
     });
 

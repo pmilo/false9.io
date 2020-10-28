@@ -1,6 +1,7 @@
 export const elements = {
-    articlesView: document.querySelector(".articles-view"),
-    bookmarkedCount: document.querySelector(".bookmarked-count"),
+    viewBtns: document.querySelectorAll('.view-btn'),
+    articlesView: document.querySelector('.articles-view'),
+    bookmarkedCount: document.querySelector('.bookmarked-count'),
     rreadCount: document.querySelector(".rread-count"),
     navBookmarked: document.querySelector('.nav-list-row.bookmarked'),
     navRRead: document.querySelector('.nav-list-row.read'),
@@ -20,12 +21,17 @@ export const elements = {
 
 
 export const elementStrings = {
+    viewBtn: ".view-btn",
     articlesView: ".articles-view",
     articleBoxes: ".article-box",
     overlayIconRow: ".overlay-icon-row",
+    overlayRowIcons: ".overlay-icon-row i",
     bookmarkIcons: ".bookmark",
     articleBoard: ".article-board",
-    articleTitle: "article-title",
+    articleTitle: ".article-title",
+    articleText: ".article-text",
+    articleImgWrapper: ".article-img-wrapper",
+    articleImg: ".article-img-wrapper img",
     readIcons: ".fa-check"
 }
 
