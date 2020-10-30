@@ -1,5 +1,7 @@
 export const elements = {
+    spinner: document.querySelector('.spinner-wrapper'),
     viewBtns: document.querySelectorAll('.view-btn'),
+    refreshBtns: document.querySelectorAll('.fa-redo-alt'),
     articlesView: document.querySelector('.articles-view'),
     bookmarkedCount: document.querySelector('.bookmarked-count'),
     rreadCount: document.querySelector(".rread-count"),

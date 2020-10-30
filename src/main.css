@@ -116,7 +116,7 @@ body {
 }
 
 .nav-list-row {
-    color: #757597c6;
+    color: #949494fa;
     width: 90%;
     min-width: 280px;
     padding: 0 1.5em;
@@ -124,6 +124,11 @@ body {
     cursor: pointer;
     border-radius: 0;
     display: flex;
+}
+
+
+.nav-list-row i { 
+    font-size: 1.1rem;
 }
 
 .nav-list-row .nav-heading {
@@ -178,10 +183,6 @@ body {
     font-size: 13px;
 }
 
-i {
-    color: #757597c6;
-    font-size: 1.1rem;
-}
 
  .nav-list i {
     /* margin-right: 1em; */
@@ -282,6 +283,7 @@ i {
 
 .articles-view {
     height: auto;
+    margin-top: 3.7em;
     /* max-width: 822.8px; */
 
     display: flex; 
@@ -292,7 +294,7 @@ i {
 .articles-banner {
     width: 100%;
     display: flex;
-    margin: 4em 0 5em 0;
+    margin: 4em 0 1em 0;
     padding-bottom: 2.5em;
     border-bottom: 1px solid rgb(240, 238, 238);
 }
@@ -338,6 +340,39 @@ i {
 
 
 /* -------------------------------------------------------------------------- */
+/* SPINNER */
+/* -------------------------------------------------------------------------- */  
+
+.spinner-wrapper {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 248px;
+}
+
+.spinner-wrapper svg {
+    animation-name: spin;
+    animation-duration: .78s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-txt {
+    padding-left: .6em;
+    color: #739FA5;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
 /* ARTICLE BLOCK */
 /* -------------------------------------------------------------------------- */
 
@@ -372,7 +407,6 @@ a {
 }
 
 .article-title:hover {
-    /* color:rgb(3, 211, 107) */
     color: rgb(148, 148, 148);
     transition: ease-in .1s;
 }
@@ -528,6 +562,8 @@ a {
 
 .mag--article-box {
 min-width: 600px !important;
+min-height: 150.25px !important;
+max-height: 150.25px !important;
 display: flex !important;
 }
 
@@ -543,16 +579,25 @@ display: flex !important;
 
 .mag--article-title {
     margin-bottom: .5em !important;
+    /* min-height : 40px;
+    max-height : 40px; */
+
+    min-width : 324px;
+    max-width : 324px;
 }
 
 .mag--article-text {
-    margin-top: 3em !important;
+    /* margin-top: 3em !important; */
+    margin: .8em 0;
+    /* min-width : 324px;
+    max-width : 324px; */
 }
 
 .mag--overlay-icon-row {
-    top: 76px !important;
-    left: 139px !important;
-    opacity: 1 !important;
+    position: relative;
+    top: -86px !important;
+    left: 540px !important;
+    /* opacity: 1 !important; */
     color: rgb(223, 220, 220) !important;
 }
 

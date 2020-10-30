@@ -52,7 +52,7 @@ export const updateBanner = (board = "today", articleCount) => {
         articleCount === 1 ? articleStr = "article" : articleStr = "articles";
 
         if (board === "bookmarks") { board = "bookmarked" }
-        elements.boardDesc.innerHTML = `You have <strong>${articleCount}</strong> ${board} ${articleStr}`;
+        elements.boardDesc.innerHTML = `you have <strong>${articleCount}</strong> ${board} ${articleStr}.`;
     }
 }
 
@@ -237,7 +237,9 @@ export const renderArticleState = (article, index, guid, selectedBoard = "") => 
 
 
 export const toggleArticleView = viewBtns => {
-   
+    //store article box elements
+    // let articleBoxes = document.querySelectorAll(elementStrings.articleBoxes);
+
     // get elements & apply magazine view styling
     document.querySelectorAll(elementStrings.articleBoxes)
         .forEach(el => el.classList.toggle('mag--article-box'));
@@ -260,13 +262,26 @@ export const toggleArticleView = viewBtns => {
     document.querySelectorAll(elementStrings.overlayRowIcons)
         .forEach(el => el.classList.toggle('mag--overlay-row-icons'));    
     
-    
     // update view icon
     // console.log(document.querySelectorAll(elementStrings.viewBtn))
     viewBtns.forEach(el => {
             if (el.firstElementChild.className.includes('fa-list')) {
                 el.firstElementChild.className = "fas fa-th";
                 el.firstElementChild.title = "Grid View"
+
+                // add icon row to article-info div
+                    // document.querySelectorAll('.article-box')
+                    //     .forEach(articleBox => {
+                    //         // get article index no
+                    //         const index = articleBox.classList[0]
+                    //         ///target index no from class name
+                    //         .split('-')[2]
+                    //         // remove comma from index string
+                    //         .substr(0, 1);
+                    //         // get corresponding icon row using article index
+                    //         articleBox.appendChild(document.querySelector(`.article-data-row-${index}`));
+                    //     })
+                    
             } else {
                 el.firstElementChild.className = "fas fa-list"
                 el.firstElementChild.title = "Magazine View";

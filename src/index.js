@@ -53,14 +53,16 @@ init();
 
 
 const controlFeed = async () => {
+
+    // add spinner
+    elements.spinner.classList.remove('no-display');
+
     // restore article view => restore view btn classname ('fas fa-list')
     // NOTE: mag-- prefixed classes are removed @ article render functions
     elements.viewBtns.forEach(btn =>{
         btn.firstElementChild.className = "fas fa-list";
         btn.firstElementChild.title = "Magazine View";
     })
-    // just run toggleArticleView func !
-    // feedView.toggleArticleView(elements.viewBtns);
 
     const proxy = "https://cors-anywhere.herokuapp.com/";
     const url = `${proxy}https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.goal.com%2Ffeeds%2Fen%2Fnews`
@@ -89,9 +91,12 @@ const controlFeed = async () => {
     // update rendered article state
     const DOMarticleBoxes = [...document.querySelectorAll(elementStrings.articleBoxes)];
 
-    DOMarticleBoxes.forEach(article => {
+    await DOMarticleBoxes.forEach(article => {
         feedView.renderArticleState(article, article.classList[0].replace( /[\D,]+/g, ''), article.dataset.guid);
     })
+    // remove spinner
+    elements.spinner.classList.add('no-display');
+
 } // End controlFeed
 
 controlFeed();
@@ -108,7 +113,10 @@ controlFeed();
 // BOOKMARKED CONTROLLER - RENDER ON CLICK (NAV-LIST)
 // =============================================================================
 
-const controlBookmarked = (selectedBoard, articleCount) => {
+const controlBookmarked = async (selectedBoard, articleCount) => {
+
+    // add spinner
+    elements.spinner.classList.remove('no-display');
 
      // restore article view => restore view btn classname ('fas fa-list')
     // NOTE: mag-- prefixed classes are removed @ article render functions
@@ -135,9 +143,13 @@ const controlBookmarked = (selectedBoard, articleCount) => {
     // update rendered article state
     const DOMarticleBoxes = [...document.querySelectorAll(elementStrings.articleBoxes)];
 
-    DOMarticleBoxes.forEach(article => {
+    await DOMarticleBoxes.forEach(article => {
         feedView.renderArticleState(article, article.classList[0].replace( /[\D,]+/g, ''), article.dataset.guid);
     })
+    // remove spinner
+    setTimeout(function(){ 
+        elements.spinner.classList.add('no-display');
+    }, 120);
 } // End controlBookmarked
 
 elements.navBookmarked.addEventListener('click', e => controlBookmarked("bookmarks", state.bookmarks.bookmarks.length))
@@ -159,7 +171,10 @@ elements.navToday.addEventListener('click', e => controlFeed())
 // RECENTLY READ CONTROLLER - RENDER ON CLICK (NAV-LIST)
 // =====h========================================================================
 
-const controlRead = (selectedBoard, articleCount) => {
+const controlRead = async (selectedBoard, articleCount) => {
+    // add spinner
+    elements.spinner.classList.remove('no-display');
+
 
     // restore article view => restore view btn classname ('fas fa-list')
     // NOTE: mag-- prefixed classes are removed @ article render functions
@@ -185,9 +200,14 @@ const controlRead = (selectedBoard, articleCount) => {
    // update rendered article state
    const DOMarticleBoxes = [...document.querySelectorAll(elementStrings.articleBoxes)];
 
-   DOMarticleBoxes.forEach(article => {
+   await DOMarticleBoxes.forEach(article => {
        feedView.renderArticleState(article, article.classList[0].replace( /[\D,]+/g, ''), article.dataset.guid, selectedBoard);
    })
+
+   //remove spinner
+   setTimeout(function(){ 
+    elements.spinner.classList.add('no-display');
+}, 120);
     
 } // End controlRead    
 
@@ -261,11 +281,35 @@ elements.navDocRead.addEventListener('click', e => {
     controlRead("read", state.read.read.length);
 })
 
+
 //------------------- VIEW-BTN ---------------------
 Array.from(elements.viewBtns)
     .forEach(btn => {
         btn.addEventListener('click', () => {
-            console.log('1 of 2 viewBtns clicked');
+            // console.log('1 of 2 viewBtns clicked');
             feedView.toggleArticleView(elements.viewBtns);
         });
     });
+
+
+//------------------- VIEW-BTN ---------------------
+
+    for (const btn of elements.refreshBtns) {
+        btn.addEventListener('click', () => {
+            const board = document.querySelector('.article-board-title').textContent;
+            switch (board) {
+            
+            case "today":
+                controlFeed();
+                break;
+
+            case "bookmarks":
+                controlBookmarked(board, state.bookmarks.bookmarks.length);
+                break;
+
+            case "read":
+                controlRead(board, state.read.read.length)
+                break;
+            }
+        }); 
+    }
