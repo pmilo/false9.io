@@ -282,7 +282,9 @@ elements.navDocRead.addEventListener('click', e => {
 })
 
 
-//------------------- VIEW-BTN ---------------------
+
+//------------------- VIEW-BTNS ---------------------
+
 Array.from(elements.viewBtns)
     .forEach(btn => {
         btn.addEventListener('click', () => {
@@ -292,7 +294,7 @@ Array.from(elements.viewBtns)
     });
 
 
-//------------------- VIEW-BTN ---------------------
+//------------------- REFRESJ-BTNS ---------------------
 
     for (const btn of elements.refreshBtns) {
         btn.addEventListener('click', () => {
@@ -313,3 +315,19 @@ Array.from(elements.viewBtns)
             }
         }); 
     }
+
+
+//------------------- ERASE-BTNs ---------------------
+
+Array.from(elements.eraseBtns)
+    .forEach(btn => {
+        btn.addEventListener('click', () => {
+            let board = document.querySelector(elementStrings.articleBoardTitle).innerHTML;
+
+            if (board === "bookmarks" || board === "read") {
+                feedView.eraseBoard(board);
+            } else {
+                return;
+            }  
+        });
+    });

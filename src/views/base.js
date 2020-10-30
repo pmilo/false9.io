@@ -1,5 +1,6 @@
 export const elements = {
     spinner: document.querySelector('.spinner-wrapper'),
+    eraseBtns: document.querySelectorAll('.fa-eraser'),
     viewBtns: document.querySelectorAll('.view-btn'),
     refreshBtns: document.querySelectorAll('.fa-redo-alt'),
     articlesView: document.querySelector('.articles-view'),
@@ -30,6 +31,7 @@ export const elementStrings = {
     overlayRowIcons: ".overlay-icon-row i",
     bookmarkIcons: ".bookmark",
     articleBoard: ".article-board",
+    articleBoardTitle: ".article-board-title",
     articleTitle: ".article-title",
     articleText: ".article-text",
     articleImgWrapper: ".article-img-wrapper",

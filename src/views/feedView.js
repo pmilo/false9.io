@@ -1,4 +1,6 @@
 import { elements, elementStrings } from './base';
+import bookmarks from '../models/bookmarks';
+import read from '../models/Read';
 // import Feed from '../models/Feed';
 
 export const renderArticle = (article, articleIndex, storageData) => { 
@@ -287,6 +289,26 @@ export const toggleArticleView = viewBtns => {
                 el.firstElementChild.title = "Magazine View";
             }
         })
+    
+}
 
+export const eraseBoard = board => {
+    clearArticles(elements.articlesView);
+
+    // clear board aticles froms state
+    state[board][board] = [];
+
+    // update board counters
+    updateBanner(board, state[board][board].length);
+
+    if (board === "bookmarks") {
+        elements.bookmarkedCount.innerHTML = state[board].getBookmarksCount();
+    } else {
+        elements.rreadCount.innerHTML = state[board].getReadCount();
+    }
+    
+
+    //sync state with local storage
+    state[board].persistData();
     
 }
