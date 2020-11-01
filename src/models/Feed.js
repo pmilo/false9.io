@@ -18,15 +18,18 @@ export default class Feed {
 
 
     calcDaysAgo(datePosted) {
+
         //split date str
-        const [ year, month, day ] = datePosted.split('-');
+        let [ year, month, day] = datePosted.split('-');
+        day = day.split(' ')[0];
+        
         let start = new Date(`${month} ${day}, ${year}`),
             end = new Date(), //current date
-            days = 1000 * 60 * 60 *24,
+            days = 1000 * 60 * 60 * 24,
             diff = end - start,
             result = Math.floor(diff / days);
     
-        const posted = `${result < 1 ? 'Today' : result + ' days ago' }`;
+        const posted = `${result <= 1 ? 'Today' : result + ' days ago' }`;
         return posted;
     }
 
