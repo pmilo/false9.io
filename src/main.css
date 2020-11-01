@@ -106,9 +106,6 @@ body {
     border-right: solid 1px rgb(239, 239, 239);
     margin-left: 17.5%;
     overflow: hidden;
-    /* display: flex; */
-    /* justify-content: space-between; */
-
 }
 
 .nav-list-rows-top {
@@ -185,10 +182,6 @@ body {
 
 
  .nav-list i {
-    /* margin-right: 1em; */
-    /* width: 40px; */
-    /* color: #fff; */
-    /* color: rgb(3, 211, 107); */
     font-size: .95rem;
  }
 
@@ -199,8 +192,6 @@ body {
     /* background-color: rgb(0, 68, 255); */
     border-radius: .2em;
     margin-right: 1em; 
-    /* border: 2px solid rgb(3, 211, 107); */
-    /* box-shadow: 0px 0px 4px 1px #ccc; */
 
     display: flex;
     justify-content: center;
@@ -292,7 +283,7 @@ body {
 }
 
 .articles-banner {
-    width: 100%;
+    width: 822.6px;
     display: flex;
     margin: 4em 0 1em 0;
     padding-bottom: 2.5em;
@@ -367,10 +358,8 @@ body {
 
 .loading-txt {
     padding-left: .6em;
-    color: #739FA5;
+    color: #739FA840
 }
-
-
 
 /* -------------------------------------------------------------------------- */
 /* ARTICLE BLOCK */
@@ -681,17 +670,49 @@ display: flex !important;
 }
 
 
+
+@media (max-width: 1024px) {
+    .articles-banner {
+        width: 100%;
+        margin-bottom: 0;
+        padding-bottom: 1em;
+    }
+    
+    .article-board-title {
+        font-size: 1.9rem;
+        margin-top: 0;
+    } 
+
+    .article-board-desc {
+        font-size: 1.2rem;
+        margin-top: .8em;
+    }
+}
+
+@media (max-width: 850px) {
+    .articles-banner {
+        width: 540px;
+    }
+
+    .articles-banner-col-right {
+        margin-right: 0;
+    }
+
+
+}
+
+
 @media (max-width: 650px) {
     .articles-content {
         width: 100%;
         margin: 0 auto;
-        padding-left: 0;
+        padding: 0;
     }
 
     .articles-view {
-        width: 85%;
+        width: 100%;
         margin-top: 3.4em;
-        margin-left: 2em;
+        margin-left: 0;
     }
 
     .articles-header-centered {
@@ -706,7 +727,8 @@ display: flex !important;
     .article-box {
         min-width: 100%;
         min-height: 430px;
-        margin: 0 auto;
+        max-height: 430px;
+        margin-bottom: 4.5em;
     }
 
     .article-box img {
@@ -724,15 +746,21 @@ display: flex !important;
     .overlay-icon-row i {
         margin-left: .4em;
     }
-}
 
-@media (max-width: 600px) {
     .overlay-icon-row {
         display: none;
     }
 
+    .spinner-wrapper {
+        top: 60px;
+        left: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    
+
     .articles-view {
-        margin-left: 0;
         padding-left: .1em
     }
 
